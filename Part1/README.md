@@ -649,7 +649,7 @@ Functional modelling occurs early in the design flow and serves to validate the 
 
 ```mermaid
 graph LR
-    
+    subgraph Benefits["Benefits"]
         A[Early Bug<br/>Detection] --> COST[10-100x<br/>Cost Savings]
         B[Performance<br/>Analysis] --> COST
         C[Architecture<br/>Validation] --> COST
