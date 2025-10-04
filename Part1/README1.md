@@ -940,7 +940,7 @@ graph TB
 ```bash
 # Basic simulation
 iverilog -o output.v
-
+```
 ## 🚀 BabySoC Implementation Details
 
 ### Module Hierarchy
