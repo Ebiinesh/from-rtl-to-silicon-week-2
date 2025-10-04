@@ -250,24 +250,6 @@ This foundational knowledge prepares us for subsequent stages: RTL implementatio
 
 ---
 
-## 🚀 Connection to Future Stages
-
-The functional modelling work in Week 2 directly enables:
-
-**Week 3 — RTL Design**  
-The functional model serves as a specification for RTL coding. We translate behavioral descriptions into synthesizable hardware descriptions.
-
-**Week 4 — Synthesis & Timing**  
-The golden functional model provides the reference for gate-level verification, ensuring synthesis transformations preserve functionality.
-
-**Week 5 — Physical Design**  
-Understanding signal flow and component interaction informs floorplanning decisions and optimization strategies during place-and-route.
-
-**Week 6 — Integration & Tapeout**  
-Functional models assist in system-level integration testing and post-layout verification.
-
----
-
 ## 📌 Summary
 
 This week established the foundational understanding necessary for SoC design:
