@@ -397,7 +397,8 @@ graph TB
 
 ```mermaid
 graph LR
-    TITLE["Power Management Architecture"]
+    subgraph Power_Domains["Power Management Architecture"]
+    
         ALWAYS[Always-On Domain]
         CPU_PWR[CPU Power Domain]
         PER_PWR[Peripheral Domain]
@@ -476,7 +477,7 @@ BabySoC is designed as an educational platform to introduce learners to SoC desi
 
 ```mermaid
 graph TB
-    subgraph BabySoC[""]
+    subgraph BabySoC[]
         RVCORE[RISC-V CPU Core<br/>RV32I Base ISA]
         
         IMEM[Instruction Memory<br/>4KB SRAM]
