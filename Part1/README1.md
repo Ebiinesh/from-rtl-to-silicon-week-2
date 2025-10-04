@@ -1337,7 +1337,7 @@ This week established the foundational understanding necessary for SoC design th
 
 ### Learning Resources
 
-- [VSD SoC Journey - GitHub](https://github.com/hemanthkumardm/SFAL-VSD-SoCJourney)
+- [VSD SoC Journey - GitHub](https://github.com/hemanthkumardm/SFAL-VSD-SoC-Journey/tree/main/12.%20VSDBabySoC%20Project)
 - [RISC-V ISA Specifications](https://riscv.org/technical/specifications/)
 - [Icarus Verilog Documentation](http://iverilog.icarus.com/)
 - [GTKWave User Guide](http://gtkwave.sourceforge.net/)
