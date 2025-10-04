@@ -1,22 +1,20 @@
 # BabySoC Design & Tapeout Program
 
-Welcome to my repository documenting my progress in the BabySoC Tapeout Program!
-
-This repository organizes my weekly tasks into dedicated folders, `Part1` and `Part2`, reflecting my journey through the design and validation of a System-on-Chip (SoC).
+This repository documents my week 2 tasks into dedicated folders, `Part1` and `Part2`, reflecting my journey through the design and validation of a System-on-Chip (SoC).
 
 > This program focuses on designing a System-on-Chip (SoC) from RTL to GDSII using open-source tools.  
 > It is part of a collaborative RISC-V tapeout initiative in India, enabling thousands of participants to contribute to the nation’s semiconductor ecosystem.
 
 ---
 
-## 📅 Week 2 — BabySoC Fundamentals & Implementation
+## Week 2 — BabySoC Fundamentals & Implementation
 
 | Task | Description | Status |
 |-------|-------------|--------|
-| [Part 1](./Part1/Week2_Part1.md) | Explore BabySoC fundamentals and functional modeling | ✅ Completed |
-| [Part 2](./Part2/Week2_Part2.md) | Perform practical implementation and functional simulation | ✅ Completed |
+| [Part 1](./Part1.md) | Explore BabySoC fundamentals and functional modeling | ✅ Completed |
+| [Part 2](./Part2.md) | Perform practical implementation and functional simulation | ✅ Completed |
 
-### 🌟 Key Learnings from Week 2
+### Key Learnings from Week 2
 
 - Gained an understanding of the BabySoC architecture, including its RISC-V CPU, PLL, and DAC components.
 - Successfully set up a Python environment and used SandPiper SaaS to convert TL-Verilog to standard Verilog for simulation.
