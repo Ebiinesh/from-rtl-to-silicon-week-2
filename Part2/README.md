@@ -23,7 +23,7 @@ Upon listing the contents, you should observe essential directories including `s
 
 ---
 
-## 🧱 Step 2 – Explore Source Modules
+## Step 2 – Explore Source Modules
 
 Examine the available hardware description modules within the source tree:
 
@@ -47,7 +47,7 @@ The BabySoC design comprises several fundamental RTL components:
 
 ---
 
-## 🧠 Step 3 – Set Up Python Environment & SandPiper SaaS
+## Step 3 – Set Up Python Environment & SandPiper SaaS
 
 The RISC-V processor module (`rvmyth.tlv`) is initially written in Transaction-Level Verilog (TL-Verilog), which requires translation to synthesizable Verilog.
 
@@ -66,7 +66,7 @@ This translation process generates the standard Verilog file `rvmyth.v` within t
 
 ---
 
-## ▶️ Step 4 – Pre-Synthesis Simulation
+## Step 4 – Pre-Synthesis Simulation
 
 Establish an output workspace and perform compilation of all design modules for **behavioral-level simulation**:
 
@@ -92,7 +92,7 @@ gtkwave pre_synth_sim.vcd
 
 ---
 
-## 📊 Step 5 – Analyze Pre-Synthesis Waveform
+## Step 5 – Analyze Pre-Synthesis Waveform
 
 **Key Signal Observations:**
 
