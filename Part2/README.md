@@ -79,7 +79,6 @@ vvp output/pre_synth_sim/pre_synth_sim.out
 ```
 
 ![04](images/5.png)
-![04](images/6.png)
 
 The simulation run produces a value change dump file named `pre_synth_sim.vcd`, which captures all signal transitions during execution.
 
@@ -89,7 +88,7 @@ Launch the waveform viewer to inspect simulation results:
 gtkwave pre_synth_sim.vcd
 ```
 
-![05](./images/05.png)
+![04](images/6.png)
 
 ---
 
@@ -108,6 +107,6 @@ gtkwave pre_synth_sim.vcd
 
 ✅ The DAC output signal (`OUT`) successfully demonstrates the anticipated analog waveform pattern that correlates with the digital values produced by the RISC-V processor core.
 
-![06](./images/06.png)
+![06](images/7.png)
 
 ---
