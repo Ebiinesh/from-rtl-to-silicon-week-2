@@ -11,8 +11,8 @@ This repository documents my week 2 tasks into dedicated folders, `Part1` and `P
 
 | Task | Description | Status |
 |-------|-------------|--------|
-| [Part 1](Part1.md) | Explore BabySoC fundamentals and functional modeling | ✅ Completed |
-| [Part 2](Part2.md) | Perform practical implementation and functional simulation | ✅ Completed |
+| [Part 1](./Part1/.md) | Explore BabySoC fundamentals and functional modeling | ✅ Completed |
+| [Part 2](./Part2/.md) | Perform practical implementation and functional simulation | ✅ Completed |
 
 ### Key Learnings from Week 2
 
