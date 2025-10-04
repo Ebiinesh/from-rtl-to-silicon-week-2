@@ -1,10 +1,10 @@
-# 🧩 Week 2 — BabySoC Fundamentals & Functional Modelling
+#  Week 2: Part 1 - BabySoC Fundamentals & Functional Modelling
 
 > "In the world of silicon, understanding the system before building the circuits is the key to success."
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Objective](#-objective)
 - [What is a System-on-Chip (SoC)?](#-what-is-a-system-on-chip-soc)
@@ -23,7 +23,7 @@
 
 ---
 
-## 📋 Objective
+## Objective
 
 This week's task focuses on building a solid foundation in System-on-Chip (SoC) design principles and practicing functional modelling techniques using industry-standard simulation tools. The goal is to understand the architectural components of an SoC and model the BabySoC design to verify its functional correctness before proceeding to RTL and physical design stages.
 
