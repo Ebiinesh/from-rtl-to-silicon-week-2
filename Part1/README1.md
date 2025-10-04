@@ -166,43 +166,23 @@ flowchart LR
 ```mermaid
 graph TB
     SoC[System-on-Chip]
-    
     SoC --> CPU[Central Processing Unit]
     SoC --> MEM[Memory Subsystem]
-    SoC --> PER[Peripherals & I/O]
+    SoC --> PER[Peripherals]
     SoC --> INT[Interconnect Fabric]
-    SoC --> PWR[Power Management]
-    SoC --> CLK[Clock Distribution]
     
     CPU --> CORE[Processing Cores]
     CPU --> CACHE[Cache Hierarchy]
-    CPU --> FPU[Floating Point Unit]
-    CPU --> MMU[Memory Management Unit]
     
-    MEM --> SRAM[On-Chip SRAM]
-    MEM --> ROM[Boot ROM]
-    MEM --> CTRL[Memory Controller]
-    MEM --> CACHE2[Cache Memory]
+    MEM --> RAM[RAM Controllers]
+    MEM --> ROM[ROM/Flash]
     
     PER --> GPIO[GPIO Controllers]
-    PER --> UART[UART]
-    PER --> SPI[SPI Interface]
-    PER --> I2C[I2C Interface]
-    PER --> TMR[Timers/Counters]
-    PER --> ADC[ADC/DAC]
+    PER --> UART[UART/SPI/I2C]
+    PER --> TMR[Timers]
     
-    INT --> BUS[System Bus]
-    INT --> XBAR[Crossbar Switch]
+    INT --> BUS[Bus Architecture]
     INT --> NOC[Network-on-Chip]
-    INT --> DMA[DMA Controller]
-    
-    PWR --> DVFS[DVFS Controller]
-    PWR --> PMU[Power Management Unit]
-    PWR --> ISO[Isolation Cells]
-    
-    CLK --> PLL[Phase-Locked Loop]
-    CLK --> CLKGEN[Clock Generator]
-    CLK --> GATING[Clock Gating Logic]
 ```
 
 ---
