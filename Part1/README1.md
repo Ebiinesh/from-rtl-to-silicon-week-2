@@ -1210,9 +1210,6 @@ graph LR
     F -.Feedback.-> E
     F -.Feedback.-> C
     
-    style B fill:#FFB6C1
-    style D fill:#FFB6C1
-    style F fill:#FFB6C1
 ```
 
 **Benefits:**
