@@ -261,11 +261,6 @@ graph TB
     
     ROM[Boot ROM] -.Initialization.-> CPU
     
-    style L1 fill:#90EE90
-    style L2 fill:#87CEEB
-    style L3 fill:#DDA0DD
-    style SRAM fill:#F0E68C
-    style DRAM fill:#FFB6C1
 ```
 
 **Memory Hierarchy Explained:**
