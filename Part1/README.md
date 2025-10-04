@@ -477,7 +477,7 @@ BabySoC is designed as an educational platform to introduce learners to SoC desi
 
 ```mermaid
 graph TB
-    subgraph BabySoC[]
+    subgraph BabySoC["Architecture"]
         RVCORE[RISC-V CPU Core<br/>RV32I Base ISA]
         
         IMEM[Instruction Memory<br/>4KB SRAM]
