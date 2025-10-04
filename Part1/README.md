@@ -1,4 +1,4 @@
-# 🧩 Week 2 — BabySoC Fundamentals & Functional Modelling
+# Week 2: Part 1 - BabySoC Fundamentals & Functional Modelling
 
 > "In the world of silicon, understanding the system before building the circuits is the key to success."
 
