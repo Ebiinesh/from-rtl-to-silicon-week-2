@@ -1,4 +1,4 @@
-# ⚙️ Part 2 – Practical Implementation & Functional Simulation
+# Week 2: Part 2 – Practical Implementation & Functional Simulation
 
 ## 🎯 Objective
 
@@ -7,7 +7,7 @@ The primary goal is to confirm correct logical behavior of the System-on-Chip be
 
 ---
 
-## 🧩 Step 1 – Repository Setup
+## Step 1 – Repository Setup
 
 Begin by obtaining the BabySoC design files from the official repository and accessing the project directory:
 
@@ -105,8 +105,18 @@ gtkwave pre_synth_sim.vcd
 | `OUT`         | DAC analog output | Displays smooth waveform corresponding to digital input |
 | `VREFH/VREFL` | DAC voltage references | Maintains constant levels at 3.3V and 0V respectively |
 
-✅ The DAC output signal (`OUT`) successfully demonstrates the anticipated analog waveform pattern that correlates with the digital values produced by the RISC-V processor core.
+The DAC output signal (`OUT`) successfully demonstrates the anticipated analog waveform pattern that correlates with the digital values produced by the RISC-V processor core.
 
 ![06](images/7.png)
 
 ---
+
+
+## Conclusion
+
+This marks the completion of the **functional modeling phase** of the BabySoC project for **Week 2** of the RISC-V SoC Tapeout Journey.
+
+In this phase, we:
+
+- Generated the Verilog code from TLV, and  
+- Verified the logical functionality through pre-synthesis simulation.
