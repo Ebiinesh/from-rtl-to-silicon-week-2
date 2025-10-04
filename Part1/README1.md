@@ -1335,13 +1335,12 @@ This week established the foundational understanding necessary for SoC design th
 
 ---
 
-### Tools & Technologies
+### Learning Resources
 
-| Category | Tool/Technology |
-|----------|----------------|
-| **HDL Simulation** | Icarus Verilog 11.0+ |
-| **Waveform Viewer** | GTKWave 3.3.100+ |
-| **Processor ISA** | RISC-V RV32I |
-| **Text Editor** | VS Code / Vim |
-| **Documentation** | Markdown, Mermaid |
-| **Version Control** | Git / GitHub |
+- [VSD SoC Journey - GitHub](https://github.com/hemanthkumardm/SFAL-VSD-SoCJourney)
+- [RISC-V ISA Specifications](https://riscv.org/technical/specifications/)
+- [Icarus Verilog Documentation](http://iverilog.icarus.com/)
+- [GTKWave User Guide](http://gtkwave.sourceforge.net/)
+- [AMBA Protocol Specifications](https://www.arm.com/architecture/system-architectures/amba)
+
+---
