@@ -397,6 +397,7 @@ graph TB
 
 ```mermaid
 graph LR
+    TITLE["Power Management Architecture"]
     subgraph Power_Domains["Power Management Architecture"]
         ALWAYS[Always-On Domain]
         CPU_PWR[CPU Power Domain]
