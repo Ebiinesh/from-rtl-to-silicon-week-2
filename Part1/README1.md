@@ -19,7 +19,7 @@
 - [BabySoC Implementation Details](#-babysoc-implementation-details)
 - [Key Learnings](#-key-learnings--understanding)
 - [Summary](#-summary)
-- [Repository Information](#-repository-information)
+- [Learning Resourses](#-learning-resources)
 
 ---
 
