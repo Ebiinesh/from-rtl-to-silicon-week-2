@@ -864,19 +864,6 @@ flowchart LR
     H -->|No| J[Verification Complete]
 ```
 
-**Simulation Commands:**
-
-```bash
-# Compile Verilog files
-iverilog -o sim.vvp testbench.v design.v
-
-# Run simulation
-vvp sim.vvp
-
-# View waveforms
-gtkwave waveform.vcd
-```
-
 ### Waveform Analysis
 
 ```mermaid
