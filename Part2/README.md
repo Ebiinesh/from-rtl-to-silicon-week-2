@@ -62,7 +62,7 @@ sandpiper-saas -i ./src/module/rvmyth.tlv -o rvmyth.v --bestsv --noline -p veril
 
 This translation process generates the standard Verilog file `rvmyth.v` within the `src/module/` path.
 
-![03](/images/4.png)
+![03](images/4.png)
 
 ---
 
@@ -78,7 +78,8 @@ src/module/testbench.v
 vvp output/pre_synth_sim/pre_synth_sim.out
 ```
 
-![04](./images/04.png)
+![04](images/5.png)
+![04](images/6.png)
 
 The simulation run produces a value change dump file named `pre_synth_sim.vcd`, which captures all signal transitions during execution.
 
