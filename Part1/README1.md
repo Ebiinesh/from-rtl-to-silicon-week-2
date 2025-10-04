@@ -940,3 +940,193 @@ graph TB
 ```bash
 # Basic simulation
 iverilog -o output.v
+
+## 🚀 BabySoC Implementation Details
+
+### Module Hierarchy
+
+```mermaid
+graph TB
+    TOP[babysoc_top.vTop-level Integration]
+    
+    TOP --> CORE[riscv_core.vRISC-V CPU]
+    TOP --> IMEM[instruction_mem.v4KB SRAM]
+    TOP --> DMEM[data_mem.v4KB SRAM]
+    TOP --> UART[uart.vSerial Interface]
+    TOP --> GPIO[gpio.vI/O Controller]
+    TOP --> BUS[bus_interface.vInterconnect]
+    
+    CORE --> IF[fetch_stage.v]
+    CORE --> ID[decode_stage.v]
+    CORE --> EX[execute_stage.v]
+    CORE --> MEM_STAGE[memory_stage.v]
+    CORE --> WB[writeback_stage.v]
+    CORE --> REGFILE[register_file.v]
+    
+    UART --> TX[uart_tx.v]
+    UART --> RX[uart_rx.v]
+    UART --> BAUD[baud_gen.v]
+```
+
+### Address Map
+
+```mermaid
+graph TB
+    subgraph Address_Space["BabySoC Memory Map"]
+        direction TB
+        A1["0x0000_0000 - 0x0000_0FFFInstruction Memory (4KB)"]
+        A2["0x0000_1000 - 0x0000_1FFFData Memory (4KB)"]
+        A3["0x1000_0000 - 0x1000_000FUART Registers"]
+        A4["0x1000_0010 - 0x1000_001FGPIO Registers"]
+        A5["0xFFFF_FFF0 - 0xFFFF_FFFFSystem Control"]
+    end
+```
+
+| Address Range | Module | Description |
+|---------------|--------|-------------|
+| 0x0000_0000 - 0x0000_0FFF | Instruction Memory | 4KB SRAM for program code |
+| 0x0000_1000 - 0x0000_1FFF | Data Memory | 4KB SRAM for variables |
+| 0x1000_0000 | UART_DATA | UART transmit/receive data |
+| 0x1000_0004 | UART_STATUS | UART status register |
+| 0x1000_0008 | UART_CONTROL | UART control register |
+| 0x1000_0010 | GPIO_DATA | GPIO data register |
+| 0x1000_0014 | GPIO_DIR | GPIO direction (I/O) |
+| 0xFFFF_FFFC | SYSTEM_STATUS | System status flags |
+
+### Signal Interface Specifications
+
+**CPU to Bus Interface:**
+```
+Outputs:
+  - addr[31:0]      : Address bus
+  - wdata[31:0]     : Write data
+  - wr_en           : Write enable
+  - rd_en           : Read enable
+  - byte_en[3:0]    : Byte enable
+
+Inputs:
+  - rdata[31:0]     : Read data
+  - ready           : Transaction complete
+  - error           : Bus error flag
+```
+
+**Bus to Memory Interface:**
+```
+Inputs:
+  - addr[11:0]      : Address (4KB space)
+  - wdata[31:0]     : Write data
+  - wr_en           : Write enable
+  - rd_en           : Read enable
+
+Outputs:
+  - rdata[31:0]     : Read data
+  - ready           : Access complete
+```
+
+**Bus to UART Interface:**
+```
+Control Registers:
+  - UART_DATA[7:0]      : TX/RX data buffer
+  - UART_STATUS[7:0]    : Status bits
+    [0] : TX busy
+    [1] : RX ready
+    [2] : TX complete
+    [3] : RX error
+  - UART_CONTROL[7:0]   : Control bits
+    [0] : Enable
+    [1] : TX start
+    [2] : RX enable
+    [7:4] : Baud rate select
+```
+
+### Clock and Reset Strategy
+
+```mermaid
+graph LR
+    subgraph Clock_Reset["Clock and Reset Distribution"]
+        OSC[External Clock] --> CLK[System Clock]
+        RST_PIN[Reset Button] --> SYNC[Reset Synchronizer]
+        SYNC --> RST_N[Active-Low Reset]
+        
+        CLK --> CPU_CLK[CPU Clock]
+        CLK --> BUS_CLK[Bus Clock]
+        CLK --> PER_CLK[Peripheral Clock]
+        
+        RST_N --> CPU_RST[CPU Reset]
+        RST_N --> BUS_RST[Bus Reset]
+        RST_N --> PER_RST[Peripheral Reset]
+    end
+```
+
+**Reset Sequence:**
+1. Assert reset (active low)
+2. Hold for minimum 10 clock cycles
+3. Release reset on clock edge
+4. CPU begins fetching from address 0x0000_0000
+5. Peripherals initialize to default state
+
+---
+
+## 🧬 Data Flow and Transaction Examples
+
+### CPU Read Transaction
+
+```mermaid
+sequenceDiagram
+    participant CPU as CPU Core
+    participant BUS as Bus Interface
+    participant MEM as Memory
+    
+    Note over CPU: Need data from 0x1000
+    CPU->>BUS: addr=0x1000, rd_en=1
+    BUS->>MEM: Decode address, forward request
+    Note over MEM: Access memory array
+    MEM->>BUS: rdata=0xDEADBEEF, ready=1
+    BUS->>CPU: Return data
+    Note over CPU: Data received, continue execution
+```
+
+### CPU Write Transaction
+
+```mermaid
+sequenceDiagram
+    participant CPU as CPU Core
+    participant BUS as Bus Interface
+    participant MEM as Memory
+    
+    Note over CPU: Write 0x12345678 to 0x1004
+    CPU->>BUS: addr=0x1004, wdata=0x12345678, wr_en=1
+    BUS->>MEM: Decode address, forward request
+    Note over MEM: Write to memory array
+    MEM->>BUS: ready=1, write complete
+    BUS->>CPU: Acknowledge
+    Note over CPU: Continue execution
+```
+
+### UART Transmission Flow
+
+```mermaid
+sequenceDiagram
+    participant CPU as CPU Core
+    participant UART as UART Module
+    participant PIN as TX Pin
+    
+    CPU->>UART: Write 'A' (0x41) to UART_DATA
+    Note over UART: Load shift register
+    UART->>CPU: Set TX_BUSY flag
+    
+    Note over UART: Start bit
+    UART->>PIN: Output 0 (start)
+    
+    loop 8 data bits
+        UART->>PIN: Output bit[i]
+    end
+    
+    Note over UART: Stop bit
+    UART->>PIN: Output 1 (stop)
+    
+    UART->>CPU: Clear TX_BUSY, set TX_COMPLETE
+    Note over CPU: Ready for next byte
+```
+
+---
