@@ -58,11 +58,11 @@ pip install pyyaml click sandpiper-saas
 sandpiper-saas -i ./src/module/rvmyth.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
 ```
 
-![03](images/03.png)
+![03](images/3.png)
 
 This translation process generates the standard Verilog file `rvmyth.v` within the `src/module/` path.
 
-![03](./images/03b.png)
+![03](/images/4.png)
 
 ---
 
