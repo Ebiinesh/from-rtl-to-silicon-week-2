@@ -1316,22 +1316,22 @@ This week established the foundational understanding necessary for SoC design th
 - Peripheral modules (UART, GPIO)
 - Bus interface and address decoding
 
-**5. Tools and Workflows**
+**5. Workflow**
 - Open-source EDA tool usage
 - Command-line simulation flow
 - Waveform debugging techniques
 - Build automation with Makefiles
 
----
+## Tools & Technologies
 
-## 📂 Repository Information
-
-**Project Name:** BabySoC Fundamentals & Functional Modelling  
-**Author:** Ebinesh K  
-**Course:** VSD SoC Journey - SFAL Program  
-**Institution:** SFAL (Semiconductor Fabless Accelerator Lab)  
-**Week:** 2 of 12  
-**Status:** ✅ **Completed**  
+| Category | Tool/Technology |
+|----------|----------------|
+| **HDL Simulation** | Icarus Verilog 11.0+ |
+| **Waveform Viewer** | GTKWave 3.3.100+ |
+| **Processor ISA** | RISC-V RV32I |
+| **Text Editor** | VS Code / Vim |
+| **Documentation** | Markdown, Mermaid |
+| **Version Control** | Git / GitHub |
 
 ---
 
