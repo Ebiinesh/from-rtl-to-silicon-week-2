@@ -1130,3 +1130,218 @@ sequenceDiagram
 ```
 
 ---
+
+## 🎓 Key Learnings & Understanding
+
+### Fundamental Insights
+
+Through this week's study of SoC fundamentals and functional modelling, several critical concepts emerged:
+
+#### 1. Hierarchical Design Philosophy
+
+SoC design is inherently hierarchical. Each component (CPU, memory, peripherals) is designed independently with well-defined interfaces, then integrated through a standardized interconnect. This modularity enables:
+
+- **Parallel Development**: Teams work on different modules simultaneously
+- **Simplified Debugging**: Issues isolated to specific modules
+- **Reusability**: Proven IP blocks used across projects
+- **Maintainability**: Changes localized to affected modules
+
+```mermaid
+graph TB
+    subgraph Hierarchy["Design Hierarchy Benefits"]
+        TOP[Top Level Integration]
+        TOP --> M1[Module 1Independent Design]
+        TOP --> M2[Module 2Independent Design]
+        TOP --> M3[Module 3Independent Design]
+        
+        M1 --> T1[Testbench 1]
+        M2 --> T2[Testbench 2]
+        M3 --> T3[Testbench 3]
+        
+        T1 -.Individual Verification.-> M1
+        T2 -.Individual Verification.-> M2
+        T3 -.Individual Verification.-> M3
+        
+        INT[Integration Testing] --> TOP
+    end
+```
+
+#### 2. Abstraction Layers
+
+The design process moves through multiple abstraction levels, each refining the previous while maintaining functional equivalence:
+
+**System Level (Highest Abstraction)**
+- Pure functionality, no timing
+- Algorithm correctness
+- Fast simulation (seconds)
+
+**Transaction Level (TLM)**
+- Approximate timing
+- Communication modeling
+- Medium simulation speed (minutes)
+
+**Register Transfer Level (RTL)**
+- Cycle-accurate behavior
+- Synthesizable code
+- Moderate simulation speed (hours)
+
+**Gate Level**
+- Logic gates and flip-flops
+- Accurate timing
+- Slow simulation (days)
+
+**Transistor Level (Lowest Abstraction)**
+- SPICE simulation
+- Analog behavior
+- Very slow simulation (weeks)
+
+#### 3. Verification-First Mindset
+
+Modern SoC design adopts a "shift-left" verification approach:
+
+```mermaid
+graph LR
+    A[Specification] --> B[Verification Plan]
+    B --> C[Functional Model]
+    C --> D[Testbench]
+    D --> E[RTL Design]
+    E --> F[Continuous Verification]
+    
+    F -.Feedback.-> E
+    F -.Feedback.-> C
+    
+    style B fill:#FFB6C1
+    style D fill:#FFB6C1
+    style F fill:#FFB6C1
+```
+
+**Benefits:**
+- Bugs caught early are 10-100x cheaper to fix
+- Comprehensive test suites prevent regression
+- Functional model serves as golden reference
+- Coverage metrics guide verification effort
+
+#### 4. Interface Standardization
+
+Modern SoCs rely on standardized interfaces to ensure component reusability:
+
+**AMBA (Advanced Microcontroller Bus Architecture)**
+- AHB: High-performance system bus
+- AXI: Advanced eXtensible Interface
+- APB: Low-power peripheral bus
+
+**Open Standards**
+- Wishbone: Open-source bus
+- TileLink: RISC-V ecosystem
+- OCP: Open Core Protocol
+
+**Benefits of Standards:**
+- Plug-and-play IP integration
+- Verified compliance
+- Tool support
+- Industry acceptance
+
+#### 5. Power-Performance-Area Trade-offs
+
+Every design decision involves trade-offs:
+
+```mermaid
+graph TB
+    subgraph PPA["The PPA Triangle"]
+        PERF[Performance]
+        PWR[Power]
+        AREA[Area]
+        
+        PERF -.Conflict.-> PWR
+        PWR -.Conflict.-> AREA
+        AREA -.Conflict.-> PERF
+    end
+    
+    subgraph Examples["Design Choices"]
+        E1["Higher frequency→ More power"]
+        E2["Larger cache→ Better performance→ More area"]
+        E3["Pipeline depth→ Higher frequency→ More power"]
+    end
+```
+
+#### 6. Timing and Synchronization
+
+Understanding clock domains and synchronization is critical:
+
+**Single Clock Domain**
+- Simpler design
+- No synchronization issues
+- Limited to slowest component
+
+**Multiple Clock Domains**
+- Optimized performance
+- Reduced power consumption
+- Requires careful synchronization
+
+**Clock Domain Crossing (CDC)**
+- Two-flop synchronizers
+- Handshaking protocols
+- FIFO buffers
+- Metastability consideration
+
+---
+
+## 📌 Summary
+
+This week established the foundational understanding necessary for SoC design through comprehensive exploration of:
+
+### Core Concepts Mastered
+
+**1. SoC Architecture**
+- Integration of CPU, memory, peripherals, and interconnect on a single chip
+- Understanding of component roles and interactions
+- Memory hierarchy and address mapping
+- Peripheral interfacing and control
+
+**2. Design Methodology**
+- Functional modelling precedes RTL to validate architecture early
+- Hierarchical design enables modularity and reusability
+- Verification-first mindset reduces overall project risk
+- Iterative refinement through simulation and analysis
+
+**3. Simulation and Verification**
+- Icarus Verilog compilation and simulation flow
+- GTKWave waveform analysis techniques
+- Testbench development strategies
+- Coverage metrics and verification planning
+
+**4. BabySoC Implementation**
+- RISC-V CPU core architecture
+- Memory subsystem organization
+- Peripheral modules (UART, GPIO)
+- Bus interface and address decoding
+
+**5. Tools and Workflows**
+- Open-source EDA tool usage
+- Command-line simulation flow
+- Waveform debugging techniques
+- Build automation with Makefiles
+
+---
+
+## 📂 Repository Information
+
+**Project Name:** BabySoC Fundamentals & Functional Modelling  
+**Author:** Ebinesh K  
+**Course:** VSD SoC Journey - SFAL Program  
+**Institution:** SFAL (Semiconductor Fabless Accelerator Lab)  
+**Week:** 2 of 12  
+**Status:** ✅ **Completed**  
+
+---
+
+### Tools & Technologies
+
+| Category | Tool/Technology |
+|----------|----------------|
+| **HDL Simulation** | Icarus Verilog 11.0+ |
+| **Waveform Viewer** | GTKWave 3.3.100+ |
+| **Processor ISA** | RISC-V RV32I |
+| **Text Editor** | VS Code / Vim |
+| **Documentation** | Markdown, Mermaid |
+| **Version Control** | Git / GitHub |
