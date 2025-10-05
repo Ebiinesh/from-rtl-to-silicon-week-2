@@ -1,4 +1,4 @@
-# BabySoC Design & Tapeout Program
+#  Week 2 — BabySoC Fundamentals & Implementation
 
 This repository documents my week 2 tasks into dedicated folders, `Part1` and `Part2`, reflecting my journey through the design and validation of a System-on-Chip (SoC).
 
@@ -7,7 +7,7 @@ This repository documents my week 2 tasks into dedicated folders, `Part1` and `P
 
 ---
 
-## Week 2 — BabySoC Fundamentals & Implementation
+## Week 2 — Tasks
 
 | Task | Description | Status |
 |-------|-------------|--------|
